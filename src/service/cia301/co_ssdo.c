@@ -372,7 +372,7 @@ CO_ERR COSdoInitUploadSegmented(CO_SDO *srv, uint32_t size)
     /* setup SDO buffer */
     srv->Buf.Cur  = srv->Buf.Start;
     srv->Buf.Num  = 0;
-    result = COObjRdBufStart(srv->Obj, srv->Node, srv->Buf.Cur, 0);
+    result = COObjRdBufStart(srv->Obj, srv->Node, srv->Buf.Cur, size);
     if (result != CO_ERR_NONE) {
         srv->Node->Error = CO_ERR_SDO_READ;
         COSdoAbort(srv, CO_SDO_ERR_HW_ACCESS);
